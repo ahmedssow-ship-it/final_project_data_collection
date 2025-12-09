@@ -1,3 +1,12 @@
+import subprocess
+import sys
+
+# Forcer l'installation de BeautifulSoup si elle n'existe pas
+try:
+    from bs4 import BeautifulSoup as bs
+except ModuleNotFoundError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "beautifulsoup4"])
+    from bs4 import BeautifulSoup as bs
 
 import streamlit as st
 import pandas as pd
